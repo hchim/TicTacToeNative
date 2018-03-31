@@ -1,0 +1,9 @@
+{
+  "expo": {
+    "sdkVersion": "26.0.0",
+    "name": "TicTacToe",
+    "slug": "tictactoe",
+    "privacy": "public",
+    "version": "0.1.0"
+  }
+}
