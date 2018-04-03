@@ -1,6 +1,6 @@
 //action creators
 
-import { MOVE_ON_BOARD } from './actionTypes'
+import { MOVE_ON_BOARD, NAV_TO_SCREEN } from './actionTypes'
 
 /*
  * Action Creators.
