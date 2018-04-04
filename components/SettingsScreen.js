@@ -1,11 +1,18 @@
 import React from 'react';
 import { StyleSheet, View, Text } from 'react-native';
 import Styles from '../common/Styles';
+import { HeaderBackButton } from 'react-navigation';
+import {navigateBack} from '../actions';
 
 class SettingsScreen extends React.Component {
 
-    static navigationOptions = {
-        title: 'Settings'
+    static navigationOptions = ({navigation}) => {
+        return {
+            title: 'Settings',
+            headerLeft: (
+                <HeaderBackButton tintColor='#fff' onPress={() => navigation.dispatch(navigateBack())} />
+            )
+        };
     };
 
     render() {

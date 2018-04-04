@@ -4,11 +4,11 @@ import GameBoard from '../containers/GameBoard';
 import GameStatus from '../containers/GameStatus';
 import HeaderButtons from 'react-navigation-header-buttons'
 import { Ionicons } from '@expo/vector-icons';
+import { navigateToScreen } from '../actions';
 
 class HomeScreen extends React.Component {
 
     static navigationOptions = ({navigation}) => {
-        const params = navigation.state.params || {};
         return {
             title: 'Home',
             headerRight: (
@@ -16,21 +16,11 @@ class HomeScreen extends React.Component {
                     <HeaderButtons.Item
                         title="Settings"
                         iconName="ios-settings"
-                        onPress={() => params.onPress('Settings')} />
+                        onPress={() => navigation.dispatch(navigateToScreen('Settings'))} />
                 </HeaderButtons>
             )
         }
     };
-
-    _navigateTo = (screen) => {
-        this.props.navigation.navigate(screen);
-    }
-
-    componentWillMount() {
-        this.props.navigation.setParams({
-            onPress: this._navigateTo
-        });
-    }
 
     render() {
         return (

@@ -1,16 +1,17 @@
 import React from 'react';
-import { createStore } from 'redux';
-import reducers from './reducers';
+import { createStore, applyMiddleware } from 'redux';
+import AppReducer from './reducers';
 import { Provider } from 'react-redux';
-import Navigator from './components/Navigator';
+import AppNavigator from './containers/AppNavigator';
+import { middleware } from './utils/redux';
 
-let store = createStore(reducers)
+let store = createStore(AppReducer, applyMiddleware(middleware));
 
 export default class App extends React.Component {
     render() {
         return (
             <Provider store={store}>
-                <Navigator />
+                <AppNavigator />
             </Provider>
         );
     }
