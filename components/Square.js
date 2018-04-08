@@ -7,7 +7,7 @@ const winSize = Dimensions.get('window');
 export default class Square extends React.Component {
     render() {
         return (
-            <TouchableHighlight style={styles.squareBtn} onPress={this.props.onClick}>
+            <TouchableHighlight style={styles.squareBtn} underlayColor={'#ddd'} onPress={this.props.onClick}>
                 <Text style={styles.squareBtnText}>{this.props.symbol}</Text>
             </TouchableHighlight>
         );
@@ -26,8 +26,9 @@ const styles = StyleSheet.create({
         borderColor: '#999',
         borderWidth: 1,
         borderStyle: 'solid',
-        marginRight: -1,
-        marginTop: -1
+        backgroundColor: '#eee',
+        marginRight: 0,
+        marginTop: 0
     },
     squareBtnText: {
         flex: 1,
