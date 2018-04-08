@@ -4,7 +4,7 @@ import GameBoard from '../containers/GameBoard';
 import GameStatus from '../containers/GameStatus';
 import HeaderButtons from 'react-navigation-header-buttons'
 import { Ionicons } from '@expo/vector-icons';
-import { navigateToScreen } from '../actions';
+import { NavigationActions } from 'react-navigation';
 
 class HomeScreen extends React.Component {
 
@@ -16,7 +16,7 @@ class HomeScreen extends React.Component {
                     <HeaderButtons.Item
                         title="Settings"
                         iconName="ios-settings"
-                        onPress={() => navigation.dispatch(navigateToScreen('Settings'))} />
+                        onPress={() => navigation.dispatch(NavigationActions.navigate({routeName: 'Settings'}))} />
                 </HeaderButtons>
             )
         }

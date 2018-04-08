@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, View, Text } from 'react-native';
 import Styles from '../common/Styles';
 import { HeaderBackButton } from 'react-navigation';
-import {navigateBack} from '../actions';
+import { NavigationActions } from 'react-navigation';
 
 class SettingsScreen extends React.Component {
 
@@ -10,7 +10,7 @@ class SettingsScreen extends React.Component {
         return {
             title: 'Settings',
             headerLeft: (
-                <HeaderBackButton tintColor='#fff' onPress={() => navigation.dispatch(navigateBack())} />
+                <HeaderBackButton tintColor='#fff' onPress={() => navigation.dispatch(NavigationActions.back())} />
             )
         };
     };

@@ -18,7 +18,7 @@ export default (state = initialState, action) => {
             break;
         case NAVIGATE:
             nextState = Navigator.router.getStateForAction(
-                NavigationActions.navigate({ routeName: action.screen }),
+                NavigationActions.navigate({ routeName: action.routeName }),
                 state
             );
             break;

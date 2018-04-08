@@ -1,5 +1,6 @@
 import React from 'react';
-import { StackNavigator } from 'react-navigation';
+import { BackHandler } from "react-native";
+import { StackNavigator, addNavigationHelpers, NavigationActions } from 'react-navigation';
 import HomeScreen from './HomeScreen';
 import SettingsScreen from './SettingsScreen';
 import PropTypes from 'prop-types';
@@ -30,11 +31,34 @@ class NavigatorWithState extends React.Component {
         nav: PropTypes.object.isRequired,
     };
 
+    componentDidMount() {
+        BackHandler.addEventListener("hardwareBackPress", this.onBackPress);
+    }
+
+    componentWillUnmount() {
+        BackHandler.removeEventListener("hardwareBackPress", this.onBackPress);
+    }
+
+    onBackPress = () => {
+        const { dispatch, nav } = this.props;
+        if (nav.index === 0) {
+            return false;
+        }
+
+        dispatch(NavigationActions.back());
+        return true;
+    };
+
     render() {
         const { dispatch, nav } = this.props;
+        const navigation = addNavigationHelpers({
+            dispatch,
+            state: nav,
+            addListener,
+        });
 
         return (
-            <Navigator navigation={{dispatch, state: nav, addListener}} />
+            <Navigator navigation={navigation} />
         );
     }
 }
